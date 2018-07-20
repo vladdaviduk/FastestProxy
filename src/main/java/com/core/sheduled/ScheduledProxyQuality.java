@@ -29,7 +29,7 @@ public class ScheduledProxyQuality {
         this.proxyRating = proxyRating;
     }
 
-    @Scheduled(fixedRate = 900000)
+    @Scheduled(fixedRate = 300000)
     public void checkAllProxies() {
 
         CheckProxy checkProxy = new CheckProxy();

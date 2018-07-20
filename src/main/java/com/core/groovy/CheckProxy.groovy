@@ -50,7 +50,7 @@ class CheckProxy {
 //            return 1;
             return ping
         }
-        else if(ping > 50 && ping < 3000){
+        else {
             System.out.println("\nСоединение успешно. Хост " + host + " пинг " + ping + " мс")
 
 //            return Math.round((1.0 - (1.0 / (3000.0 / ping))) * 100.0) / 100.0;
