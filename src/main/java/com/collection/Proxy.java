@@ -69,8 +69,4 @@ public class Proxy {
     public void setPingTimeout(int pingTimeout) {
         this.pingTimeout = pingTimeout;
     }
-    
-    
-
-    
 }

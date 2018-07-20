@@ -56,10 +56,6 @@ class CheckProxy {
 //            return Math.round((1.0 - (1.0 / (3000.0 / ping))) * 100.0) / 100.0;
             return ping
 
-        } else{
-            System.out.println("\nПровал. Хост  " + host + " пинг " + ping)
-            return 0
         }
-
     }
 }
