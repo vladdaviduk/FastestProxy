@@ -41,9 +41,9 @@ public class GetProxy {
         proxy.setProxyInuse(true);
         proxyRepository.save(proxy);
 
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.writeValue(jsonFile, jsonObject);
-        mapper.writer();
+//        ObjectMapper mapper = new ObjectMapper();
+//        mapper.writeValue(jsonFile, jsonObject);
+//        mapper.writer();
 
         proxyRating.remove(0);
         scheduledProxyQuality.setProxyRating(proxyRating);

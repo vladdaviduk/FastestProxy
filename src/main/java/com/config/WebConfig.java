@@ -2,6 +2,7 @@ package com.config;
 
 import com.mongodb.Mongo;
 import com.mongodb.MongoClient;
+import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -15,9 +16,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
-@Configuration
+@SpringBootConfiguration
 @EnableWebMvc
-@ComponentScan("com")
 @EnableScheduling
 @EnableMongoRepositories(basePackages = "com.repository")
 class WebConfig implements WebMvcConfigurer {
@@ -39,7 +39,8 @@ class WebConfig implements WebMvcConfigurer {
 
     @Bean
     public Mongo mongo() throws Exception {
-        return new MongoClient("127.0.0.1", 27017);
+//        return new MongoClient("spring-demo-mongo", 27017);
+        return new MongoClient("127.0.0.1", 8081);
     }
 
     @Bean

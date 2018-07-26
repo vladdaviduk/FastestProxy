@@ -9,11 +9,23 @@
 //        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.3.RELEASE")
 //    }
 //}
+buildscript {
+    repositories {
+       maven {
+            url "http://repo1.maven.org/maven2"
+        }
+        maven { url 'https://repo.spring.io/libs-snapshot' }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.3.RELEASE")
+    }
+
+}
 
 apply plugin: 'java'
 apply plugin: 'groovy'
 apply plugin: 'idea'
-apply plugin: 'war'
+apply plugin: 'org.springframework.boot'
 //apply plugin: 'org.springframework.boot'
 //apply plugin: 'io.spring.dependency-management'
 
@@ -45,7 +57,19 @@ sourceSets {
     test.runtimeClasspath += configurations.provided
 }
 
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Implementation-Title': 'FastestProxy',
+                'Implementation-Version': version,
+                'Main-Class': 'com.controller.GetProxyController'
+    }
+    baseName = project.name + '-all'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
 dependencies {
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '1.5.4.RELEASE'
 
     compile group: 'org.springframework', name: 'spring-webmvc', version: '5.0.7.RELEASE'
     compile group: 'org.springframework', name: 'spring-web', version: '5.0.7.RELEASE'
