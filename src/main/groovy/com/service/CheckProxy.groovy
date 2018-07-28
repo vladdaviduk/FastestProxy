@@ -1,4 +1,4 @@
-package com.core.groovy
+package com.service
 
 class CheckProxy {
 
@@ -29,6 +29,7 @@ class CheckProxy {
     }
 
     long ping(String host, int port) {
+
         long ping
         try {
             Socket socket = new Socket()
