@@ -24,6 +24,8 @@ class ParseProxy {
             Proxy proxy = new Proxy();
             proxy.setHost(element.getAsJsonObject().get("ip").getAsString());
             proxy.setPort(element.getAsJsonObject().get("port").getAsInt());
+            proxy.setPingSuccess(false)
+            proxy.setProxyInuse(false)
 
             if(proxyRepository.findByHostAndPort(proxy.getHost(), proxy.getPort()) == null){
                proxies.add(proxy);
